@@ -5,75 +5,26 @@
       <h1 class="text-2xl font-bold">Angular Challenges</h1>
 
       <!-- Navigation -->
-<nav>
-  <ul class="flex flex-wrap items-center gap-4">
-    <li>
-      <a routerLink="/" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Home
-      </a>
-    </li>
-    <li>
-      <a routerLink="/reactive-form-validation" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Reactive Forms
-      </a>
-    </li>
-    <li>
-      <a routerLink="/fetch-api-data" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        API Data
-      </a>
-    </li>
-    <li>
-      <a routerLink="/component-communication" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Component Communication
-      </a>
-    </li>
-    <li>
-      <a routerLink="/dynamic-table" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Dynamic Table
-      </a>
-    </li>
-    <li>
-      <a routerLink="/lazy-loading" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-      Lazy Loading
-      </a>
-    </li>
-    <li>
-      <a routerLink="/rxjs-observables" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-      RxJS Observables
-      </a>
-    </li>
-    <li>
-      <a routerLink="/custom-directives" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Custom Directives
-      </a>
-    </li>
-    <li>
-      <a routerLink="/template-form-validation" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Template Forms
-      </a>
-    </li>
-    <li>
-      <a routerLink="/pipes" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Pipes
-      </a>
-    </li>
-    <li>
-      <a routerLink="/state-management" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        State Management
-      </a>
-    </li>
-  </ul>
-</nav>
+      <nav>
+        <ul class="flex flex-wrap items-center gap-4">
+          <li *ngFor="let challenge of challenges">
+            <a [routerLink]="challenge.path" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
+              {{ challenge.name }}
+            </a>
+          </li>
+
+        </ul>
+      </nav>
     </div>
   </header>
 
   <!-- Main Content -->
   <main class="flex-grow p-6 container mx-auto">
-    <router-outlet/>
+    <router-outlet />
   </main>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white text-center py-3">
-    © 2024 Angular Challenges. All Rights Reserved.
+    © 2025 Angular Challenges. All Rights Reserved.
   </footer>
 </div>
