@@ -1,1 +1,65 @@
-<p>reactive-form-validation works!</p>
+<div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold text-center mb-4">Reactive Form Validation</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="space-y-4">
+        <div>
+            <label class="block font-medium">Name:</label>
+            <input type="text" formControlName="name" class="border p-2 w-full rounded" />
+            @if(formControl['name'].invalid && formControl['name'].touched) {
+            @if(formControl['name'].errors?.['required']) {
+            <small class="text-red-700">Name is required.</small>
+            } @else if(formControl['name'].errors?.['minlength']) {
+            <small class="text-red-700">Name must be at least 3 characters long.</small>
+            }
+            }
+        </div>
+        <div>
+            <label class="block font-medium">Email:</label>
+            <input type="email" formControlName="email" class="border p-2 w-full rounded" />
+            @if(formControl['email'].invalid && formControl['email'].touched) {
+            @if(formControl['email'].errors?.['required']) {
+            <small class="text-red-700">Email is required.</small>
+            } @else if(formControl['email'].errors?.['email']) {
+            <small class="text-red-700">Please enter a valid email address.</small>
+            }
+            }
+        </div>
+        <div>
+            <label class="block font-medium">Password:</label>
+            <input type="password" formControlName="password" class="border p-2 w-full rounded" />
+            @if (formControl['password'].invalid && formControl['password'].touched) {
+            @if (formControl['password'].errors?.['required']) {
+            <small class="text-red-700">Password is required.</small>
+            } @else if (formControl['password'].errors?.['minlength']) {
+            <small class="text-red-700">Password must be at least 6 characters.</small>
+            } @else if (formControl['password'].errors?.['pattern']) {
+            <small class="text-red-700">Password must contain at least 1 uppercase, 1 lowercase, and 1 digit.</small>
+            }
+            }
+        </div>
+        <div>
+            <label class="block font-medium">Confirm Password:</label>
+            <input type="password" formControlName="confirmPassword" class="border p-2 w-full rounded" />
+            <small class="text-red-700" *ngIf="formControl['confirmPassword'].errors?.['required']">Confirm Password is
+                required</small>
+            <small class="text-red-700" *ngIf="formControl['confirmPassword'].errors?.['mustMatch']">Passwords do not match</small>
+        </div>
+        <div>
+            <label class="block font-medium">Age (Optional):</label>
+            <input type="text" formControlName="age" class="border p-2 w-full rounded" />
+            @if(formControl['age'].invalid && formControl['age'].touched) {
+            @if(formControl['age'].errors?.['required']) {
+            <small class="text-red-700">Age is required.</small>
+            } @else if(formControl['age'].errors?.['pattern']) {
+            <small class="text-red-700">Age must be a valid number.</small>
+            }
+            }
+        </div>
+        <input type="submit" [attr.disabled]="userForm.invalid ? true : null" value="Submit" class="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-800 transition disabled:bg-gray-400 disabled:cursor-not-allowed" />
+    </form>
+    @if(formData){
+    <div class="mt-6 p-4 border rounded bg-green-100">
+        <h3 class="text-lg font-semibold">Submitted Data:</h3>
+        <pre class="text-sm">{{ formData | json }}</pre>
+    </div>
+    }
+</div>

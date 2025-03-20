@@ -1,0 +1,31 @@
+<div class="border rounded-lg p-4">
+    <!-- Checkbox to toggle visibility -->
+    <label class="flex items-center space-x-2 cursor-pointer">
+        <input type="checkbox" [(ngModel)]="showDetails"
+            class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500" />
+        <span class="text-gray-700">Show Challenge Details</span>
+    </label>
+</div>
+
+<!-- Show challenge details only if checkbox is checked -->
+<div *ngIf="showDetails">
+    <p class="font-medium p-4 text-green-700 mt-2 text-lg mb-1">{{ title }}</p>
+
+    <details class="border rounded-lg p-4 mb-2 ml-2 mr-2">
+        <summary class="font-medium cursor-pointer">📝 Requirements:</summary>
+        <pre class="text-sm border rounded bg-green-100 p-3">
+      <ul>
+        <li *ngFor="let req of requirements">📃 {{ req }}</li>
+      </ul>
+    </pre>
+    </details>
+
+    <details class="border rounded-lg p-4 mb-2 ml-2 mr-2">
+        <summary class="font-medium cursor-pointer">🚀 Expected Features:</summary>
+        <pre class="text-sm border rounded bg-green-100 p-3">
+      <ul>
+        <li *ngFor="let feature of features">✔ {{ feature }}</li>
+      </ul>
+    </pre>
+    </details>
+</div>

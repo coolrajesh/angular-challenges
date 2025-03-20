@@ -28,16 +28,28 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## 📌  Challenges List
 
-1. [Reactive Form Validation](./src/app/pages/reactive-form-validation) --
-2. [Fetch API Data](./src/app/pages/fetch-api-data)
-3. [Component Communication](./src/app/pages/component-communication)
-4. [Dynamic Table](./src/app/pages/dynamic-table)
-5. [Lazy Loading](./src/app/pages/lazy-loading)
-6. [RxJS Observables](./src/app/pages/rxjs-observables)
-7. [Custom Directives](./src/app/pages/custom-directives)
-8. [Template Form Validation](./src/app/pages/template-form-validation)
-9. [Pipes](./src/app/pages/pipes)
-10. [State Management](./src/app/pages/state-management)
+1. [Reactive Form Validation](./src/app/pages/reactive-form-validation) --> This challenge will help you understand how to implement form validation using Reactive Forms in Angular.
+##✅ Create a form with fields:
+
+Name (Required, min 3 characters)
+Email (Required, must be a valid email)
+Password (Required, min 6 characters) -- use custom validators for password and confirm password validation
+Confirm Password (Must match Password)
+Age (Optional, but must be a number if entered)
+✅ Display validation error messages when the user enters incorrect values.
+✅ The form should be submitted only when all validations pass.
+✅ Show submitted form data below the form when submitted.
+2. [Dynamic Form Handling](./src/app/pages/dynamic-form-handling)
+3. [Todo List with Filtering & Persistence](./src/app/pages/todo-list.component)
+3. [Fetch API Data](./src/app/pages/fetch-api-data)
+4. [Component Communication](./src/app/pages/component-communication)
+5. [Dynamic Table](./src/app/pages/dynamic-table)
+6. [Lazy Loading](./src/app/pages/lazy-loading)
+7. [RxJS Observables](./src/app/pages/rxjs-observables)
+8. [Custom Directives](./src/app/pages/custom-directives)
+9. [Template Form Validation](./src/app/pages/template-form-validation)
+10. [Pipes](./src/app/pages/pipes)
+11. [State Management](./src/app/pages/state-management)
 
 ## 📖 How to Run This Project
 

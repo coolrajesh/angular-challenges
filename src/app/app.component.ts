@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Required for *ngFor
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 
 @Component({
@@ -14,7 +14,10 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'angular-challenges';
   challenges = [
+    { name: 'Home', path: '/' },
     { name: 'Reactive Forms', path: '/reactive-form-validation' },
+    { name: 'Dynamic Form Handling', path: 'dynamic-form-handling' },
+    { name: 'Todo List with Filtering & Persistence', path:'todo-list-with-filtering-persistence'},
     { name: 'API Fetching', path: '/fetch-api-data' },
     { name: 'Component Comm.', path: '/component-communication' },
     { name: 'Dynamic Table', path: '/dynamic-table' },
@@ -25,7 +28,17 @@ export class AppComponent {
     { name: 'Pipes', path: '/pipes' },
     { name: 'State Mgmt.', path: '/state-management' }
   ];
-  constructor(private router: Router) { }
+  isHomePage = true;
 
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.onRouteChange();
+      }
+    });
+  }
+  onRouteChange() {    
+    this.isHomePage = this.router.url === '/';   
+  }
   
 }
