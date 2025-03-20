@@ -1,79 +1,41 @@
 <div class="flex flex-col min-h-screen">
   <!-- Header -->
-  <header class="bg-blue-700 text-white py-4 px-6 shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Angular Challenges</h1>
-
-      <!-- Navigation -->
-<nav>
-  <ul class="flex flex-wrap items-center gap-4">
-    <li>
-      <a routerLink="/" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Home
-      </a>
-    </li>
-    <li>
-      <a routerLink="/reactive-form-validation" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Reactive Forms
-      </a>
-    </li>
-    <li>
-      <a routerLink="/fetch-api-data" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        API Data
-      </a>
-    </li>
-    <li>
-      <a routerLink="/component-communication" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Component Communication
-      </a>
-    </li>
-    <li>
-      <a routerLink="/dynamic-table" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Dynamic Table
-      </a>
-    </li>
-    <li>
-      <a routerLink="/lazy-loading" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-      Lazy Loading
-      </a>
-    </li>
-    <li>
-      <a routerLink="/rxjs-observables" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-      RxJS Observables
-      </a>
-    </li>
-    <li>
-      <a routerLink="/custom-directives" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Custom Directives
-      </a>
-    </li>
-    <li>
-      <a routerLink="/template-form-validation" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Template Forms
-      </a>
-    </li>
-    <li>
-      <a routerLink="/pipes" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        Pipes
-      </a>
-    </li>
-    <li>
-      <a routerLink="/state-management" class="px-3 py-2 rounded-lg transition hover:bg-blue-800">
-        State Management
-      </a>
-    </li>
-  </ul>
-</nav>
-    </div>
+  <header class="bg-gray-900 text-white p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Angular Challenges</h1>
   </header>
+  <div class="flex flex-1">
+    <!-- Sidebar: Only visible on non-home pages -->
+    <aside *ngIf="!isHomePage" class="w-64 bg-gray-800 text-white p-4">
+      <h2 class="text-lg font-bold mb-4">Challenges</h2>
+      <ul class="space-y-2">
+        <li *ngFor="let challenge of challenges" >
+          <a [routerLink]="challenge.path" class="block p-2 bg-gray-700 rounded hover:bg-gray-600">
+            {{ challenge.name }}
+          </a>
+        </li>
+      </ul>
+    </aside>
+<div *ngIf="isHomePage" class="container mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6 text-center">Angular Challenges</h1>
 
-  <!-- Main Content -->
-  <main class="flex-grow p-6 container mx-auto">
-    <router-outlet/>
-  </main>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <ng-container *ngFor="let challenge of challenges">
+    <div *ngIf="challenge.name != 'Home' " class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition">   
+      <a [routerLink]="challenge.path" class="text-lg font-semibold text-blue-600 hover:underline">
+        {{ challenge.name }}
+      </a>      
+    </div>
+    </ng-container>
+  </div>
+</div>
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+      <router-outlet (activate)="onRouteChange()"></router-outlet>
+    </main>
+  </div>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-3">
-    © 2024 Angular Challenges. All Rights Reserved.
+  <footer class="bg-gray-900 text-white p-4 text-center">
+    &copy; 2024 Angular Challenges. All rights reserved.
   </footer>
 </div>

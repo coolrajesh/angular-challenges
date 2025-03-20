@@ -1,0 +1,59 @@
+<app-challenge-details [title]="dynamicChallenge.title" [requirements]="dynamicChallenge.requirements"
+    [features]="dynamicChallenge.features"></app-challenge-details>
+<div class="max-w-md mx-auto border mt-2 rounded-lg shadow-md bg-white">   
+    <div class="bg-gray-200 px-4 py-3 font-semibold text-gray-800">
+        Dynamic Form Handling <button (click)="addPhoneNumber()" class="bg-green-700 text-white px-3 py-2 rounded hover:bg-blue-800 ml-16 cursor-pointer">
+            Add Phone Number</button>
+    </div>  
+    <div class="p-4">
+        <form [formGroup]="dynamicFormGroup" (ngSubmit)="submitForm()" class="space-y-4">
+            <div>
+                <label class="block font-medium">Name:</label>
+                <input formControlName="name" type="text" class="border p-2 w-full rounded" />
+                @if(dynamicFormGroup.controls['name'].invalid && dynamicFormGroup.controls['name'].touched) {
+                @if(dynamicFormGroup.controls['name'].errors?.['required']) {
+                <small class="text-red-700">Name is required.</small>
+                } @else if(dynamicFormGroup.controls['name'].errors?.['minlength']) {
+                <small class="text-red-700">Name must be at least 3 characters long.</small>
+                }
+                }
+            </div>
+            <div>
+                <label class="block font-medium">Email:</label>
+                <input formControlName="email" type="text" class="border p-2 w-full rounded" />
+                @if(dynamicFormGroup.controls['email'].invalid && dynamicFormGroup.controls['email'].touched) {
+                @if(dynamicFormGroup.controls['email'].errors?.['required']) {
+                <small class="text-red-700">Email is required.</small>
+                } @else if(dynamicFormGroup.controls['email'].errors?.['email']) {
+                <small class="text-red-700">Please enter a valid email address.</small>
+                }
+                }
+            </div>
+            <ng-container formArrayName="phoneNumbers">
+                @for (phoneControl of phoneNumbers.controls; track $index) {
+                <div>
+                    <label class="block font-medium">Phone Number:</label>
+                    <input [formControlName]="$index.toString()" type="text" class="border p-2 rounded" />            
+                    <button (click)="removePhoneNumber($index)" type="button"
+                        class="bg-red-700 text-white px-3 py-2 ml-3 rounded cursor-pointer">
+                        Remove Phone Number
+                    </button>
+                    @if(phoneNumbers.at($index).invalid && phoneNumbers.at($index).touched) {
+                    <small class="text-red-500 text-sm">
+                        Phone number is required.
+                    </small>
+                    }
+                </div>
+                }
+            </ng-container>
+            <input type="submit" [attr.disabled]="dynamicFormGroup.invalid ? true : null" value="Submit"
+                class="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-800 transition disabled:bg-gray-400 disabled:cursor-not-allowed" />
+            @if(dynamicFormData){
+                <div class="mt-6 p-4 border rounded bg-green-100">
+                    <h3 class="text-lg font-semibold">Submitted Data:</h3>
+                    <pre class="text-sm">{{ dynamicFormData | json }}</pre>
+                </div>
+            }
+        </form>
+    </div>   
+</div>
