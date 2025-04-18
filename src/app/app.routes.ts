@@ -11,6 +11,9 @@ import { PipesComponent } from './pages/pipes/pipes.component';
 import { StateManagementComponent } from './pages/state-management/state-management.component';
 import { DynamicFormHandlingComponent } from './pages/dynamic-form-handling/dynamic-form-handling.component';
 import { TodoListComponent } from './pages/todo-list/todo-list.component';
+import { CrudComponent } from './pages/crud/crud.component';
+import { InfiniteScrollComponent } from './pages/infinite-scroll/infinite-scroll.component';
+import { DragDropComponent } from './pages/drag-drop/drag-drop.component';
 
 export const routes: Routes = [
     //{ path: '', component: ReactiveFormValidationComponent },
@@ -18,6 +21,9 @@ export const routes: Routes = [
     { path: 'dynamic-form-handling', component: DynamicFormHandlingComponent },
     { path: 'todo-list-with-filtering-persistence', component: TodoListComponent },
     { path: 'fetch-api-data', component: FetchApiDataComponent },
+    { path: 'crud', component: CrudComponent },
+    { path: 'infinite-scroll', component: InfiniteScrollComponent },
+    {path:'drag-drop',component:DragDropComponent},
     { path: 'component-communication', component: ComponentCommunicationComponent },
     { path: 'dynamic-table', component: DynamicTableComponent },
     { path: 'lazy-loading', component: LazyLoadingComponent },

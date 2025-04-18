@@ -1,0 +1,31 @@
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.list-container {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.list-item {
+    background: white;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: grab;
+}
+
+cdk-drop-list {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+cdk-drag {
+    transition: transform 0.2s ease-in-out;
+}

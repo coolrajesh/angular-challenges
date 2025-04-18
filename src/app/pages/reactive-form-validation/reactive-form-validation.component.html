@@ -1,3 +1,15 @@
+<!--
+✅ Create a form with fields:
+Name (Required, min 3 characters)
+Email (Required, must be a valid email)
+Password (Required, min 6 characters)
+Confirm Password (Must match Password)
+Age (Optional, but must be a number if entered)
+✅ Display validation error messages when the user enters incorrect values.
+✅ The form should be submitted only when all validations pass.
+✅ Show submitted form data below the form when submitted.
+-->
+
 <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
     <h2 class="text-2xl font-semibold text-center mb-4">Reactive Form Validation</h2>
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="space-y-4">

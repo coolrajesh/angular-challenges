@@ -1,0 +1,59 @@
+<app-challenge-details [title]="challenges.title" [requirements]="challenges.requirements"
+    [features]="challenges.features"></app-challenge-details>
+<div class="container mx-auto p-6">
+    <h2 class="text-lg font-semibold mb-4">Manage Posts</h2>
+    <form (submit)="submit()" class="mb-4">
+        <input [(ngModel)]="newPost.title" name="title" placeholder="Title" class="border p-2 mr-2 w-1/3" required />
+        <input [(ngModel)]="newPost.body" name="body" placeholder="Body" class="border p-2 mr-2 w-1/3" required />
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+            {{ isEditing ? 'Update' : 'Add' }} Post
+        </button>
+        <!-- <button *ngIf="isEditing" (click)="cancelEdit()" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">
+            Cancel
+        </button> -->
+    </form>
+@if (loading) {
+    <div>
+        <div class="space-y-4 animate-pulse mt-5 ">
+            <!-- Title -->
+            <div class="h-10 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 rounded w-3/4"></div>
+        
+            <!-- Content Lines -->
+            <div class="h-8 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 rounded w-5/6"></div>
+            <div class="h-8 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 rounded w-2/3"></div>
+        
+            <!-- Avatar + Text -->
+            <div class="flex items-center space-x-4">
+                <!-- Avatar -->
+                <div class="w-10 h-10 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 rounded-full"></div>
+                <!-- Name Placeholder -->
+                <div class="h-4 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 rounded w-1/3"></div>
+            </div>
+        </div>
+    </div>
+}@else {
+    <table class="w-full border-collapse border border-gray-300">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border p-2">Title</th>
+                <th class="border p-2">Body</th>
+                <th class="border p-2">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (post of posts; track $index) {
+            <tr>
+                <td class="border p-2">{{ post.title }}</td>
+                <td class="border p-2">{{ post.body }}</td>
+                <td class="border p-2">
+                    <button (click)="editPost(post)" class="bg-yellow-500 text-white px-2 py-1 rounded">Edit</button>
+                    <button (click)="deletePost(post.id)"
+                        class="bg-red-500 text-white px-2 py-1 mt-2 rounded">Delete</button>
+                </td>
+            </tr>
+}
+        </tbody>
+    </table>
+}
+</div>

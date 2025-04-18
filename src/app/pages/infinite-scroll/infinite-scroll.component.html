@@ -1,0 +1,45 @@
+<app-challenge-details [title]="challenges.title" [requirements]="challenges.requirements"
+    [features]="challenges.features"></app-challenge-details>
+@if (errorMessage) {
+    <div>No Data</div>
+}    
+@if(!loading){
+<div class="max-w-2xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Latest Posts</h2>    
+<div class="flex flex-col space-y-6 p-4">
+    @for (post of posts; track post.id) {
+    <div class="flex bg-white rounded-lg shadow-md p-6 border border-gray-200 items-start">
+        <!-- Icon or Image Placeholder (Optional) -->
+        <div class="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+            <span class="text-blue-600 text-xl font-bold">{{ $index + 1 }}</span>
+        </div>
+
+        <!-- Content -->
+        <div class="ml-4">
+            <h3 class="text-xl font-semibold text-blue-600 mb-2">
+                {{ post.title }}
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+                {{ post.body }}
+            </p>
+        </div>
+    </div>
+    }
+</div>
+</div>
+} @else {
+<div class="flex justify-center items-center h-screen">
+    <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+</div>
+}
+@if(!hasMoreData) {
+<div class="flex flex-col justify-center items-center h-screen animate-fade-in">
+    <svg class="w-16 h-16 text-gray-400 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12h6m-6 4h6m-6-8h6m-8 12h10a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+    <p class="text-lg font-semibold text-gray-600">No more data available.</p>
+    <p class="text-sm text-gray-400">You've reached the end! Check back later for more updates.</p>
+</div>
+}
