@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChallengeDetailsComponent } from '../../pages/challenge-details/challenge-details.component';
 import { ApiService } from '../../services/api.service';
+import { LoaderComponent } from "../../loader/loader.component";
 
 @Component({
   selector: 'app-infinite-scroll',
   standalone: true,
-  imports: [CommonModule, FormsModule,ChallengeDetailsComponent],
+  imports: [CommonModule, FormsModule, ChallengeDetailsComponent, LoaderComponent],
   templateUrl: './infinite-scroll.component.html',
   styleUrl: './infinite-scroll.component.css'
 })

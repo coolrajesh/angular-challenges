@@ -1,0 +1,45 @@
+<!-- <input type="file" (change)="onFileSelected($event)" multiple accept="image/*" /> -->
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+<input (change)="onFileSelected($event)" multiple accept="image/*"
+    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+    id="file_input" type="file">
+
+<div class="preview-container">
+    @for (img of imagePreviews; let i = $index; track i) {
+    <div class="preview-box">
+        <p>Image {{ i + 1 }}</p>
+        <img [src]="img" alt="Preview {{ i }}" height="100px" width="100px" />
+        <button (click)="removeImage(i)">Remove</button>
+    </div>
+    }
+</div>
+
+<!-- Service Hub Table -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th *ngFor="let head of headers">{{ head }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data">
+            <td>{{ row.status }}</td>
+            <td *ngFor="let val of row.values">{{ val }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- SAP Quantity Table -->
+<table border="1">
+    <thead>
+        <tr>
+            <th *ngFor="let head of stockHeaders">{{ head }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of stockData">
+            <td>{{ row.status }}</td>
+            <td *ngFor="let val of row.values">{{ val }}</td>
+        </tr>
+    </tbody>
+</table>

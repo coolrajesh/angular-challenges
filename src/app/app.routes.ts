@@ -14,6 +14,11 @@ import { TodoListComponent } from './pages/todo-list/todo-list.component';
 import { CrudComponent } from './pages/crud/crud.component';
 import { InfiniteScrollComponent } from './pages/infinite-scroll/infinite-scroll.component';
 import { DragDropComponent } from './pages/drag-drop/drag-drop.component';
+import { DynamicFormGenerationComponent } from './pages/dynamic-form-generation/dynamic-form-generation.component';
+import { ImageuploadComponent } from './pages/imageupload/imageupload.component';
+import { ProductListComponent } from './pages/product-list/product-list.component'; 
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 export const routes: Routes = [
     //{ path: '', component: ReactiveFormValidationComponent },
@@ -23,7 +28,12 @@ export const routes: Routes = [
     { path: 'fetch-api-data', component: FetchApiDataComponent },
     { path: 'crud', component: CrudComponent },
     { path: 'infinite-scroll', component: InfiniteScrollComponent },
-    {path:'drag-drop',component:DragDropComponent},
+    { path: 'drag-drop', component: DragDropComponent },
+    { path: 'dynamic-form-generation', component: DynamicFormGenerationComponent },
+    { path: 'image-uplaod-with-preview', component: ImageuploadComponent },
+    { path: 'product-list', component: ProductListComponent }, 
+    { path: 'product-details/:id', component: ProductDetailsComponent }, 
+    {path: 'checkout', component: CheckoutComponent},
     { path: 'component-communication', component: ComponentCommunicationComponent },
     { path: 'dynamic-table', component: DynamicTableComponent },
     { path: 'lazy-loading', component: LazyLoadingComponent },

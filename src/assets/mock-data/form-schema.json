@@ -1,0 +1,16 @@
+[
+  { "label": "Full Name", "type": "text", "name": "fullName", "placeholder": "Enter your full name", "validators": { "required": true, "minLength": 3 } },
+  { "label": "Email Address", "type": "email", "name": "email", "placeholder": "Enter your email", "validators": { "required": true, "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" } },
+  { "label": "Password", "type": "password", "name": "password", "placeholder": "Enter your password", "validators": { "required": true, "minLength": 6 } },
+  { "label": "Phone Number", "type": "tel", "name": "phone", "placeholder": "Enter your phone number", "validators": { "required": true, "pattern": "^[0-9]{10}$" } },
+  { "label": "Website", "type": "url", "name": "website", "placeholder": "Enter your website URL", "validators": { "pattern": "^(https?:\\/\\/)?([\\w\\d-]+\\.)+\\w{2,}(\\/.*)?$" } },
+  { "label": "Age", "type": "number", "name": "age", "placeholder": "Enter your age", "validators": { "required": true, "min": 18, "max": 100 } },
+  { "label": "Birth Date", "type": "date", "name": "birthDate", "validators": { "required": true } },
+  { "label": "Appointment Time", "type": "time", "name": "appointmentTime", "validators": { "required": true } },
+  { "label": "Color Picker", "type": "color", "name": "favoriteColor", "validators": {} },
+  { "label": "Subscribe to newsletter", "type": "checkbox", "name": "subscribe", "validators": {} },
+  { "label": "Gender", "type": "radio", "name": "gender", "options": ["Male", "Female", "Other"], "validators": { "required": true } },
+  { "label": "Country", "type": "select", "name": "country","placeholder":"Enter Country", "options": ["India", "USA", "UK", "Canada"], "validators": { "required": true } },
+  { "label": "Bio", "type": "textarea", "name": "bio", "placeholder": "Tell us about yourself...", "validators": { "maxLength": 500 } },
+  { "label": "Profile Picture", "type": "file", "name": "profilePic", "validators": {} }
+]

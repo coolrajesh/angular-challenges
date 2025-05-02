@@ -1,1 +1,41 @@
-<p>rxjs-observables works!</p>
+<ul>
+   @for (value of values; track $index) {
+    <li>Received : {{ value }}</li>
+   }
+</ul>
+@if (errorMessage) {
+<div class="text-red-500">Error: {{ errorMessage }}</div>
+}
+
+@if (isCompleted) {
+<p class="text-green-600 pt-2">All numbers emitted successfully!</p>
+}
+
+<br>
+<div class="p-4 border rounded shadow-md w-72 mx-auto text-center">
+   <h2 class="text-xl font-bold mb-2">🕒 Live Timer</h2>
+
+   <div class="text-4xl font-mono text-blue-600 mb-4">
+      {{ timerValue }}s
+   </div>
+
+   <div class="space-x-2">
+      <button (click)="start()" class="bg-green-500 text-white px-3 py-1 rounded">Start</button>
+      <button (click)="stop()" class="bg-yellow-500 text-white px-3 py-1 rounded">Stop</button>
+      <button (click)="reset()" class="bg-red-500 text-white px-3 py-1 rounded">Reset</button>
+   </div>
+</div>
+
+<div class="p-4 max-w-md mx-auto">
+   <input type="text" [formControl]="searchControl" placeholder="Search users..." class="w-full border p-2 rounded" />
+
+   <ul class="mt-4">
+      @for (user of users; track user.id) {
+      <li class="py-1 border-b">{{ user.name }}</li>
+      }
+   </ul>
+
+   @if (isLoading) {
+   <p>Loading...</p>
+   }
+</div>

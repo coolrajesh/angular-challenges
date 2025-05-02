@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "price": 59.99,
+    "image": "https://via.placeholder.com/300x200.png?text=Headphones",
+    "category": "Electronics"
+  },
+  {
+    "id": 2,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "image": "https://via.placeholder.com/300x200.png?text=Shoes",
+    "category": "Footwear"
+  },
+  {
+    "id": 3,
+    "name": "Smart Watch",
+    "price": 129.99,
+    "image": "https://via.placeholder.com/300x200.png?text=Watch",
+    "category": "Electronics"
+  },
+  {
+    "id": 4,
+    "name": "Backpack",
+    "price": 45.00,
+    "image": "https://via.placeholder.com/300x200.png?text=Backpack",
+    "category": "Accessories"
+  },
+  {
+    "id": 5,
+    "name": "T-shirt",
+    "price": 19.99,
+    "image": "https://via.placeholder.com/300x200.png?text=T-shirt",
+    "category": "Clothing"
+  },
+  {
+    "id": 6,
+    "name": "Sunglasses",
+    "price": 25.99,
+    "image": "https://via.placeholder.com/300x200.png?text=Sunglasses",
+    "category": "Accessories"
+  }
+]

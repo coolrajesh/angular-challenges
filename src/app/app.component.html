@@ -30,6 +30,7 @@
 </div>
     <!-- Main Content -->
     <main class="flex-1 p-6">
+      <app-loader *ngIf="isLoading$ | async"></app-loader>
       <router-outlet (activate)="onRouteChange()"></router-outlet>
     </main>
   </div>
